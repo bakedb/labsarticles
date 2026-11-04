@@ -2,26 +2,26 @@
 layout: base.njk
 title: BKD Labs
 ---
-<h2 class="text-lg font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-6">Latest Articles</h2>
+<h2 class="text-lg font-bold text-subtle uppercase tracking-wider mb-6">Latest Articles</h2>
 
 <div class="space-y-4">
   {% for post in collections.posts %}
   <a href="{{ post.url | url }}"
-    class="flex flex-col sm:flex-row bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-md transition overflow-hidden">
+    class="flex flex-col sm:flex-row bg-surface rounded-xl shadow-sm border border-line hover:border-brand hover:shadow-md transition overflow-hidden">
 
     {# Thumbnail Image #}
     {% if post.data.cover %}
-    <div class="sm:w-48 h-48 sm:h-auto flex-shrink-0 bg-gray-100 dark:bg-gray-900">
+    <div class="sm:w-48 h-48 sm:h-auto flex-shrink-0 bg-surface-alt">
       <img src="{{ post.data.cover | url }}" alt="{{ post.data.coverAlt or post.data.title }}"
         class="w-full h-full object-cover" />
     </div>
     {% endif %}
 
     <div class="p-6 flex-grow">
-      <span class="text-xs font-semibold text-gray-400 dark:text-gray-400 uppercase">{{ post.date.toDateString()
+      <span class="text-xs font-semibold text-subtle uppercase">{{ post.date.toDateString()
         }}</span>
-      <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-1 mb-2">{{ post.data.title }}</h3>
-      <p class="text-gray-600 dark:text-gray-300 text-sm line-clamp-2">{{ post.data.description }}</p>
+      <h3 class="text-xl font-bold text-heading mt-1 mb-2">{{ post.data.title }}</h3>
+      <p class="text-muted text-sm line-clamp-2">{{ post.data.description }}</p>
     </div>
 
   </a>

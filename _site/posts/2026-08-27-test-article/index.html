@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Very Cool Test Article (not clickbait)</title>
 
-  <!-- 1. Run theme check BEFORE rendering CSS to prevent white flash -->
+
   <script>
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark');
@@ -15,26 +15,96 @@
     }
   </script>
 
-  <!-- 2. Tailwind CDN with explicit config -->
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-    }
-  </script>
+  
+<style>
+  :root {
+    /* Light palette — change these five colors */
+    --palette-page: #fef4ff;
+    --palette-surface: #E3D3E4;
+    --palette-surface-alt: #DC758F;
+    --palette-text: #873D48;
+    --palette-accent: #664C43;
+
+    /* Derived semantic tokens — no need to edit */
+    --color-page: var(--palette-page);
+    --color-surface: var(--palette-surface);
+    --color-surface-alt: var(--palette-surface-alt);
+    --color-heading: var(--palette-text);
+    --color-body: color-mix(in srgb, var(--palette-text) 82%, var(--palette-surface));
+    --color-muted: color-mix(in srgb, var(--palette-text) 55%, var(--palette-surface));
+    --color-subtle: color-mix(in srgb, var(--color-muted) 70%, var(--palette-page));
+    --color-line: color-mix(in srgb, var(--palette-text) 12%, var(--palette-surface));
+    --color-control: color-mix(in srgb, var(--palette-text) 6%, var(--palette-surface));
+    --color-control-hover: color-mix(in srgb, var(--palette-text) 12%, var(--palette-surface));
+    --color-brand: var(--palette-accent);
+  }
+
+  .dark {
+    /* Dark palette — change these five colors */
+    --palette-page: #716e71;
+    --palette-surface: #6F6172;
+    --palette-surface-alt: #5F404B;
+    --palette-text: #35282B;
+    --palette-accent: #2B2726;
+  }
+</style>
+
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          page: 'var(--color-page)',
+          surface: 'var(--color-surface)',
+          'surface-alt': 'var(--color-surface-alt)',
+          heading: 'var(--color-heading)',
+          body: 'var(--color-body)',
+          muted: 'var(--color-muted)',
+          subtle: 'var(--color-subtle)',
+          line: 'var(--color-line)',
+          control: 'var(--color-control)',
+          'control-hover': 'var(--color-control-hover)',
+          brand: 'var(--color-brand)',
+        },
+        typography: {
+          DEFAULT: {
+            css: {
+              '--tw-prose-body': 'var(--color-body)',
+              '--tw-prose-headings': 'var(--color-heading)',
+              '--tw-prose-lead': 'var(--color-muted)',
+              '--tw-prose-links': 'var(--color-brand)',
+              '--tw-prose-bold': 'var(--color-heading)',
+              '--tw-prose-counters': 'var(--color-subtle)',
+              '--tw-prose-bullets': 'var(--color-subtle)',
+              '--tw-prose-hr': 'var(--color-line)',
+              '--tw-prose-quotes': 'var(--color-body)',
+              '--tw-prose-quote-borders': 'var(--color-line)',
+              '--tw-prose-captions': 'var(--color-subtle)',
+              '--tw-prose-code': 'var(--color-heading)',
+              '--tw-prose-pre-code': 'var(--color-body)',
+              '--tw-prose-pre-bg': 'var(--color-surface-alt)',
+              '--tw-prose-th-borders': 'var(--color-line)',
+              '--tw-prose-td-borders': 'var(--color-line)',
+            },
+          },
+        },
+      },
+    },
+  }
+</script>
 </head>
 
-<body
-  class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 font-sans antialiased min-h-screen flex flex-col transition-colors duration-200">
-  <header class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 py-6">
+<body class="bg-page text-body font-sans antialiased min-h-screen flex flex-col transition-colors duration-200">
+  <header class="bg-surface border-b border-line py-6">
     <div class="max-w-3xl mx-auto px-4 flex justify-between items-center">
-      <a href="/news/"
-        class="text-2xl font-black tracking-tight text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition">BeanNet
-        News</a>
+      <a href="/news/" class="text-2xl font-black tracking-tight text-heading hover:text-brand transition">BKD
+        Labs</a>
 
       <!-- Theme Toggle Button -->
       <button id="theme-toggle" type="button" aria-label="Toggle theme"
-        class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 text-sm font-semibold transition">
+        class="p-2 rounded-lg bg-control text-muted hover:bg-control-hover text-sm font-semibold transition">
         <span id="theme-toggle-text">Theme</span>
       </button>
     </div>
@@ -42,17 +112,17 @@
 
   <main class="max-w-3xl mx-auto px-4 py-8 flex-grow w-full">
     <article
-  class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden transition-colors duration-200">
+  class="bg-surface rounded-xl shadow-sm border border-line overflow-hidden transition-colors duration-200">
 
   
 
   <div class="p-8">
     <header class="mb-6">
-      <h1 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-2 leading-tight">Very Cool Test Article (not clickbait)</h1>
-      <time class="text-sm text-gray-400 dark:text-gray-400 font-medium">Wed Aug 26 2026</time>
+      <h1 class="text-3xl font-extrabold text-heading mb-2 leading-tight">Very Cool Test Article (not clickbait)</h1>
+      <time class="text-sm text-subtle font-medium">Wed Aug 26 2026</time>
     </header>
 
-    <div class="prose prose-blue dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 leading-relaxed">
+    <div class="prose max-w-none leading-relaxed">
       <p>This is testing <em>markdown</em> formatting.</p>
 <h3>Here is a heading:</h3>
 <ul>
@@ -66,16 +136,15 @@
 
     </div>
 
-    <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-700">
-      <a href="/news/" class="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline">Back to
-        News Feed</a>
+    <div class="mt-8 pt-6 border-t border-line">
+      <a href="/news/" class="text-sm font-semibold text-brand hover:underline">Back to
+        Labs Feed</a>
     </div>
   </div>
 </article>
   </main>
 
-  <footer
-    class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-6 text-center text-sm text-gray-500 dark:text-gray-400">
+  <footer class="bg-surface border-t border-line py-6 text-center text-sm text-muted">
     Made with &lt;3
   </footer>
 

@@ -2,26 +2,26 @@
 layout: base.njk
 ---
 <article
-  class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden transition-colors duration-200">
+  class="bg-surface rounded-xl shadow-sm border border-line overflow-hidden transition-colors duration-200">
 
   {% if cover %}
-  <div class="w-full h-64 md:h-80 overflow-hidden bg-gray-100 dark:bg-gray-900">
+  <div class="w-full h-64 md:h-80 overflow-hidden bg-surface-alt">
     <img src="{{ cover | url }}" alt="{{ coverAlt or title }}" class="w-full h-full object-cover" />
   </div>
   {% endif %}
 
   <div class="p-8">
     <header class="mb-6">
-      <h1 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-2 leading-tight">{{ title }}</h1>
-      <time class="text-sm text-gray-400 dark:text-gray-400 font-medium">{{ date.toDateString() }}</time>
+      <h1 class="text-3xl font-extrabold text-heading mb-2 leading-tight">{{ title }}</h1>
+      <time class="text-sm text-subtle font-medium">{{ date.toDateString() }}</time>
     </header>
 
-    <div class="prose prose-blue dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 leading-relaxed">
+    <div class="prose max-w-none leading-relaxed">
       {{ content | safe }}
     </div>
 
-    <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-700">
-      <a href="{{ '/' | url }}" class="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline">Back to
+    <div class="mt-8 pt-6 border-t border-line">
+      <a href="{{ '/' | url }}" class="text-sm font-semibold text-brand hover:underline">Back to
         Labs Feed</a>
     </div>
   </div>

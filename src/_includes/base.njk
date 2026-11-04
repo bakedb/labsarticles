@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title or "BeanNet News" }}</title>
+  <title>{{ title or "BKD Labs" }}</title>
 
 
   <script>
@@ -16,24 +16,18 @@
   </script>
 
   <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-    }
-  </script>
+  {% include "theme.njk" %}
 </head>
 
-<body
-  class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 font-sans antialiased min-h-screen flex flex-col transition-colors duration-200">
-  <header class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 py-6">
+<body class="bg-page text-body font-sans antialiased min-h-screen flex flex-col transition-colors duration-200">
+  <header class="bg-surface border-b border-line py-6">
     <div class="max-w-3xl mx-auto px-4 flex justify-between items-center">
-      <a href="{{ '/' | url }}"
-        class="text-2xl font-black tracking-tight text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition">BKD
+      <a href="{{ '/' | url }}" class="text-2xl font-black tracking-tight text-heading hover:text-brand transition">BKD
         Labs</a>
 
       <!-- Theme Toggle Button -->
       <button id="theme-toggle" type="button" aria-label="Toggle theme"
-        class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 text-sm font-semibold transition">
+        class="p-2 rounded-lg bg-control text-muted hover:bg-control-hover text-sm font-semibold transition">
         <span id="theme-toggle-text">Theme</span>
       </button>
     </div>
@@ -43,8 +37,7 @@
     {{ content | safe }}
   </main>
 
-  <footer
-    class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-6 text-center text-sm text-gray-500 dark:text-gray-400">
+  <footer class="bg-surface border-t border-line py-6 text-center text-sm text-muted">
     Made with &lt;3
   </footer>
 
