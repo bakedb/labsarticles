@@ -45,4 +45,4 @@ I would say that Linux Lite is a pretty solid distro. I am comfortable with XFCE
 After more than a week of using this distribution, I can confidently say that I would recommend it to someone else. I might stay on it for a while because it's so solid. It feels like Linux Mint with less default applications, a different default desktop environment, and is closer to a vanilla Debian/Ubuntu experience. It barely got in my way, but I can see the appeal for a more modern-looking desktop environment that this distro doesn't seem to provide in a beginner-friendly manner. I would set it around an 8/10, but that can vary depending on how much you like XFCE.
 
 > Editor's note, 12 November 2026: Interestingly, the Fastfetch configuration is still set to display Xubuntu's information.
-![Fastfetch](https://imgur.com/a/9af9mtU.png)
+![Fastfetch](https://imgur.com/P3HBxnZ.png)
